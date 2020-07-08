@@ -15,7 +15,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     let data=localStorage.getItem('cart');
-    if(data !==null) {
+    if(data !== null) {
       this.cartProducts = JSON.parse(data);
     } else {
       this.cartProducts = [];
@@ -89,5 +89,27 @@ export class ProductsComponent implements OnInit {
   }
 
 // functions
+addToCart(index) {
+  let product = this.products[index];
+  let cartData = [];
+  let data = localStorage.getItem('cart');
+
+  if(data !== null) {
+    cartData = JSON.parse(data);
+  }
+
+  cartData.push(product);
+  this.updateCartData(cartData);
+  localStorage.setItem('cart', JSON.stringify(cartData));
+  this.products[index].isAdded = true;
+  }
+
+  updateCartData(cartData) {
+    this.cartProducts = cartData;
+  }
+
+  goToCart() {
+    this.router.navigate(['/cart']);
+  }
 
 }

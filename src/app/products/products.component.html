@@ -12,15 +12,15 @@
                     <span class="glyicon glyphicon-shopping-cart">
                         Products Added In Cart:
                     </span>
-                    <!-- <span class="caret">{{cartProducts.length}}</span> -->
+                    <span class="caret">{{cartProducts.length}}</span>
                 </a>
                 <ul class="dropdown-menu dropdown-cart" role="menu">
-                    <!-- <li *ngFor="let item of cartProducts">
+                    <li *ngFor="let item of cartProducts">
                         <div class="item product-cart-item row">
-                            <div class="col-md-8" *ng-if="item">{{item.title}}</div>
-                            <div class="col-md-4" *ng-if="item"><strong>${{item.price}}</strong></div>
+                            <div class="col-md-8" *ngIf="item">{{item.title}}</div>
+                            <div class="col-md-4" *ngIf="item"><strong>${{item.price}}</strong></div>
                         </div>
-                    </li> -->
+                    </li>
                     <hr>
                     <li>
                         <a class="btn btn-primary btn-block" role="button" (click)="goToCart()">
@@ -37,13 +37,12 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
             <div class="col-md-4 col-centered" *ngFor="let product of products let i=index">
                 <div class="card card-block">
                     <img class="custom-image-style" [src]="product.img">
                     <div class="product-desc-container row">
                         <div class="container">
-                            <p><strong>{{product.tittle}}: ${{product.price}}</strong></p>
+                            <p><strong>{{product.title}}: ${{product.price}}</strong></p>
                             <p>{{product.description}}</p>
                         </div>
                         <div class="offset-md-4 col-md-4">
@@ -52,7 +51,6 @@
 
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>
