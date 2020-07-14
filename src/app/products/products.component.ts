@@ -13,9 +13,13 @@ export class ProductsComponent implements OnInit {
 
   constructor(private router:Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     let data=localStorage.getItem('cart');
-    if(data !== null) {
+
+    // console.log(data);
+    // console.log("data type: " + typeof data );
+
+    if(data !== "null") {
       this.cartProducts = JSON.parse(data);
     } else {
       this.cartProducts = [];
@@ -94,7 +98,7 @@ addToCart(index) {
   let cartData = [];
   let data = localStorage.getItem('cart');
 
-  if(data !== null) {
+  if(data !== "null") {
     cartData = JSON.parse(data);
   }
 

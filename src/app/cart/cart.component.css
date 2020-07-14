@@ -1,0 +1,17 @@
+ .carts-body-container {
+     padding-top: 15px;
+     padding-bottom: 15px;
+ }
+
+ .cart-product-container {
+     display: flex;
+ }
+
+ .cart-product-container img {
+     width: 75%;
+     height: 75%;
+ }
+
+ .bill-container {
+     display: flex;
+ }

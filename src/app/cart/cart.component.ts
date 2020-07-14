@@ -11,7 +11,7 @@ export class CartComponent implements OnInit {
   bill: any;
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.initiateData();
   }
 
@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
 
       for(let i in this.cartProducts) {
         this.cartProducts[i]["qt"] = 1;
-        this.bill = this.bill + this.cartProducts[i].price + this.cartProducts[i].qt;
+        this.bill = this.bill + this.cartProducts[i].price * this.cartProducts[i].qt;
       }
     } else {
       this.cartProducts = [];
@@ -35,7 +35,7 @@ export class CartComponent implements OnInit {
     this.bill = 0;
 
     for(let i in this.cartProducts) {
-      this.bill = this.bill + this.cartProducts[i].price + this.cartProducts[i].qt;
+      this.bill = this.bill + this.cartProducts[i].price * this.cartProducts[i].qt;
     }
   }
 
@@ -48,4 +48,15 @@ export class CartComponent implements OnInit {
       localStorage.setItem('cart', null);
     }
   }
+
+  payBill() {
+    if(this.cartProducts.length) {
+      localStorage.removeItem('cart');
+      this.initiateData();
+      alert("Your bill is " + this.bill);
+    } else {
+      alert("No items in cart.");
+    }
+  }
+  
 }
